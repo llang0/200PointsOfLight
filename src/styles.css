@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+}
+  
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+  
+body {
+  background: "white";
+}
+
+canvas{
+  background-color: black;
+}
+
+p{
+  margin: 0;
+}
+
+.note{
+  background-color: white;
+  color: black;
+  height: 200px;
+  width: 200px;
+  padding: 10px;
+
+  overflow-wrap: break-word;
+  overflow: auto;
+}
+
+.editor{
+  position: absolute;
+  top: 40%;
+  right: 80px;
+  transform: translate(0, -50%);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+
+  background-color: rgba(241, 241, 241, 0.9);
+  width: 525px;
+  height: 80%;
+  max-height: 800px;
+  max-width: 50%;
+  margin-top: 40px;
+  border-radius: 20px;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+
+}
+
+.editor--header{
+  font-size: 13px;
+  color: #6F6F6F;
+  border-bottom: 1px solid #c3c3c3;
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 20px 4px 30px;
+  align-items: baseline;
+}
+
+#three-dots, #trash{
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+#three-dots{
+  margin-right: 13px;
+}
+
+.editor--body{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+}
+
+.remirror-editor-wrapper{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+[contenteditable="true"]{
+  /* border: 1px solid red; */
+  flex: 1
+}
+
+[contenteditable="true"]:focus {
+  outline: none;
+}
+
+.create-note-button-wrapper{
+  position: absolute;
+  z-index: 10000;
+  display: flex;
+  bottom: 40px;
+  left: 50%;
+
+  transform: translate(-50%, 0);
+}
+
+.create-note-button{
+  display: flex;
+  width: 125px;
+  height: 47px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+
+  border-radius: 16px;
+  border: 1px solid #d9d9d9;
+  background: rgba(255, 255, 255, 0.90);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+  
+}
