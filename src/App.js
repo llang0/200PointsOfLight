@@ -26,7 +26,7 @@ function App() {
     function getNewNotes() {
         const newNotes = [{
             id: nanoid(),
-            text: `<p>This is your first note! Click me to start editing...</p>`,
+            text: `<p>Welcome to 200 points of Light!\n This is your first note - Click me to start editing, or use W, A, S, D, R, and F to move. </p>`,
             selected: false,
             position: [0,0,80],
             doc: {
@@ -37,7 +37,7 @@ function App() {
                         content: [
                             {
                                 type: 'text',
-                                text: `This is your first note! Click me to start editing...`,
+                                text: `Welcome to 200 points of Light!\n This is your first note! Click me to start editing, or use W, A, S, D, R, and F to move.`,
                             },
                         ],
                     },
