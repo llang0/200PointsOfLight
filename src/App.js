@@ -5,13 +5,12 @@ import { FirstPersonControls } from '@react-three/drei'
 import { nanoid } from 'nanoid'
 // remirror imports 
 import { BoldExtension } from 'remirror/extensions';
-import { Remirror, useRemirror } from '@remirror/react';
+import { useRemirror } from '@remirror/react';
 import { prosemirrorNodeToHtml } from 'remirror';
 // local imports
 import ThreeDNote from './components/ThreeDNote'
-import trash from "./assets/trash.svg"
 import pencil from "./assets/pencil.svg"
-import threeDots from "./assets/three-dots-vertical.svg"
+import Editor from './components/Editor';
 
 const extensions = () => [new BoldExtension()];
 
@@ -181,31 +180,14 @@ function App() {
 
             </Canvas>
 
-            <div className='editor' style={{ display: getSelectedNote() ? "flex" : "none" }}>
-                <div className="editor--header">
-                    {/* December 14, 2023 at 9:34pm */}
-                    &nbsp;
-                    <div className="editor--header-icons">
-                        <button id="three-dots">
-                            <img src={threeDots} />
-                        </button>
-                        <button id="trash" onClick={deleteNote}>
-                            <img src={trash} />
-                        </button>
-                    </div>
-                </div>
-                <div className='editor--body'>
-                    <Remirror
-                        autoRender={'start'}
-                        manager={manager}
-                        state={state}
-                        onChange={(parameter) => {
-                            // Update the state to the latest value.
-                            setState(parameter.state);
-                        }}
-                    />
-                </div>
-            </div>
+            <Editor
+                manager={manager}
+                state={state}
+                setState={setState}
+                getSelectedNote={getSelectedNote}
+                deleteNote={deleteNote}
+            />
+
             <div className='create-note-button-wrapper'>
                 <button className='create-note-button' onClick={createNote}>
                     <img src={pencil} />
